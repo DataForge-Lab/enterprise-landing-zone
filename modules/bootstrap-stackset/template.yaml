@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "Create bootstrap role for management to assume in member accounts"
+Resources:
+  BootstrapRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      RoleName: "lz-bootstrap-role"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              AWS: !Ref ManagementAccountArn
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AdministratorAccess"
+Parameters:
+  ManagementAccountArn:
+    Type: String
+    Description: "ARN allowed to assume the role (e.g. arn:aws:iam::123456789012:root or a specific role ARN)"

@@ -1,0 +1,14 @@
+aws_region = "eu-west-1"
+
+# Replace emails with real email addresses you control for account creation
+accounts = {
+  "security-account" = { email = "security-account+demo@example.com", ou = "Security", create = true }
+  "audit-account"    = { email = "audit-account+demo@example.com",    ou = "Security", create = true }
+  "logarchive-account" = { email = "logarchive-account+demo@example.com", ou = "Logging", create = true }
+  "dev-account"      = { email = "dev-account+demo@example.com",      ou = "Workloads", create = true }
+  "test-account"     = { email = "test-account+demo@example.com",     ou = "Workloads", create = true }
+  "prod-account"     = { email = "prod-account+demo@example.com",     ou = "Workloads", create = true }
+}
+
+allowed_regions = ["eu-west-1"]
+logarchive_bucket_name = "lz-log-archive-yourorg-eu-west-1" # set to a unique bucket name
