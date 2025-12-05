@@ -52,3 +52,15 @@ terraform apply -target=module.dev_account_resources -var-file=terraform.tfvars
 terraform output -module=dev_account_resources
 
 # Repeat Phase 2 for all other accounts (Security, Audit, Test, Prod, LogArchive)
+
+Final notes / next steps
+
+This project is intentionally opinionated for a demo. For production:
+
+Narrow bootstrap role permissions (least privilege).
+
+Use AWS Identity Center (SSO) and permission sets (migrate from IAM users).
+
+Add monitoring (CloudWatch Logs Insights, Athena queries on CloudTrail), lifecycle rules, retention policies, and cross-account encryption/replication as required.
+
+Consider using Control Tower or landing-zone frameworks (AWS Landing Zone, AWS Control Tower) for large enterprise automation.
